@@ -1,0 +1,22 @@
+<div>
+    <mat-card>
+        <mat-card-title>Alterar Pessoa</mat-card-title>
+        <form [formGroup]="pessoaForm">
+            <mat-form-field appearance="outline">
+                <input formControlName="nome" matInput placeholder="Nome" [(ngModel)]="pessoa.nome">
+                <mat-error *ngIf="temErro('nome', 'required')">O nome deve ser preenchido</mat-error>
+                <mat-error *ngIf="temErro('nome', 'minlength')">O nome deve ter pelo menos 3 caracteres</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <input formControlName="sobrenome" matInput placeholder="Sobrenome" [(ngModel)]="pessoa.sobrenome">
+                <mat-error *ngIf="temErro('sobrenome', 'required')">O sobrenome deve ser preenchido</mat-error>
+                <mat-error *ngIf="temErro('sobrenome', 'minlength')">O sobrenome deve ter pelo menos 3 caracteres</mat-error>
+            </mat-form-field>
+
+        </form>
+        <button [disabled]="!pessoaForm.valid" mat-raised-button (click)="atualizar()" color="primary"> Atualizar</button>
+
+        <button mat-raised-button (click)="cancelar()">Cancelar</button>
+    </mat-card>
+</div>
