@@ -25,12 +25,19 @@ import { HeaderComponent } from './components/templante/header/header.component'
 import { FooterComponent } from './components/templante/footer/footer.component';
 import { NavComponent } from './components/templante/nav/nav.component';
 
-//Pessoas
-import { PessoaCrudComponent  } from './views/pessoa-crud/pessoa-crud.component';
-import { PessoaReadComponent  } from './components/pessoa/pessoa-read/pessoa-read.component';
-import { PessoaCreateComponent  } from './components/pessoa/pessoa-create/pessoa-create.component';
-import { PessoaDeleteComponent  } from './components/pessoa/pessoa-delete/pessoa-delete.component';
-import { PessoaUpdateComponent  } from './components/pessoa/pessoa-update/pessoa-update.component';
+//Clientes
+import { ClienteCrudComponent  } from './views/cliente-crud/cliente-crud.component';
+import { ClienteReadComponent  } from './components/cliente/cliente-read/cliente-read.component';
+import { ClienteCreateComponent  } from './components/cliente/cliente-create/cliente-create.component';
+import { ClienteDeleteComponent  } from './components/cliente/cliente-delete/cliente-delete.component';
+import { ClienteUpdateComponent  } from './components/cliente/cliente-update/cliente-update.component';
+
+//Anuncios
+import { AnuncioCrudComponent  } from './views/anuncio-crud/anuncio-crud.component';
+import { AnuncioReadComponent  } from './components/anuncio/anuncio-read/anuncio-read.component';
+import { AnuncioCreateComponent  } from './components/anuncio/anuncio-create/anuncio-create.component';
+import { AnuncioDeleteComponent  } from './components/anuncio/anuncio-delete/anuncio-delete.component';
+import { AnuncioUpdateComponent  } from './components/anuncio/anuncio-update/anuncio-update.component';
 
 
 @NgModule({
@@ -40,12 +47,18 @@ import { PessoaUpdateComponent  } from './components/pessoa/pessoa-update/pessoa
     HeaderComponent,
     FooterComponent,
     NavComponent,
-    PessoaReadComponent,
 
-    PessoaCrudComponent,
-    PessoaCreateComponent,
-    PessoaDeleteComponent,
-    PessoaUpdateComponent,
+    ClienteReadComponent,
+    ClienteCrudComponent,
+    ClienteCreateComponent,
+    ClienteDeleteComponent,
+    ClienteUpdateComponent,
+
+    AnuncioCrudComponent,
+    AnuncioReadComponent,
+    AnuncioCreateComponent,
+    AnuncioDeleteComponent,
+    AnuncioUpdateComponent,
 
   ],
   imports: [

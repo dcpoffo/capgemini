@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.data;
 
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210505232549_terceira_migracao")]
+    partial class terceira_migracao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,44 +45,6 @@ namespace backend.Migrations
                     b.HasIndex("ClienteId");
 
                     b.ToTable("Anuncio");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ClienteId = 1,
-                            DataInicio = new DateTime(2021, 5, 5, 20, 34, 45, 453, DateTimeKind.Local).AddTicks(4342),
-                            DataTermino = new DateTime(2021, 6, 4, 20, 34, 45, 455, DateTimeKind.Local).AddTicks(2365),
-                            InvestimentoDiario = 1.0,
-                            Nome = "Anuncio1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ClienteId = 1,
-                            DataInicio = new DateTime(2021, 5, 6, 20, 34, 45, 455, DateTimeKind.Local).AddTicks(8264),
-                            DataTermino = new DateTime(2021, 6, 4, 20, 34, 45, 455, DateTimeKind.Local).AddTicks(8291),
-                            InvestimentoDiario = 2.0,
-                            Nome = "Anuncio 2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ClienteId = 1,
-                            DataInicio = new DateTime(2021, 5, 7, 20, 34, 45, 455, DateTimeKind.Local).AddTicks(8301),
-                            DataTermino = new DateTime(2021, 6, 4, 20, 34, 45, 455, DateTimeKind.Local).AddTicks(8304),
-                            InvestimentoDiario = 3.0,
-                            Nome = "Anuncio 3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ClienteId = 1,
-                            DataInicio = new DateTime(2021, 5, 8, 20, 34, 45, 455, DateTimeKind.Local).AddTicks(8308),
-                            DataTermino = new DateTime(2021, 6, 4, 20, 34, 45, 455, DateTimeKind.Local).AddTicks(8310),
-                            InvestimentoDiario = 1.0,
-                            Nome = "Anuncio 2"
-                        });
                 });
 
             modelBuilder.Entity("backend.models.Cliente", b =>

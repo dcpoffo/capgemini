@@ -10,7 +10,10 @@ namespace backend.data
         void Delete<T> (T entity) where T : class;
         Task<bool> SaveChangesAsync();
         
-        Task<Pessoa[]> GetAllPessoasAsync();
-        Task<Pessoa> GetPessoaAsyncById(int pessosId);       
+        Task<Cliente[]> GetAllClientesAsync();
+        Task<Cliente> GetClienteAsyncById(int clienteId);   
+
+        Task<Anuncio[]> GetAllAnunciosAsync();
+        Task<Anuncio> GetAnuncioAsyncById(int anuncioId);       
     }
 }

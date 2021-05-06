@@ -1,0 +1,15 @@
+<div>
+    <mat-card>
+        <mat-card-title>Alterar dados do Cliente</mat-card-title>
+        <form [formGroup]="clienteForm">
+            <mat-form-field appearance="outline">
+                <input formControlName="nome" matInput placeholder="Nome" [(ngModel)]="cliente.nome">
+                <mat-error *ngIf="temErro('nome', 'required')">O nome deve ser preenchido</mat-error>
+                <mat-error *ngIf="temErro('nome', 'minlength')">O nome deve ter pelo menos 3 caracteres</mat-error>
+            </mat-form-field>
+        </form>
+        <button [disabled]="!clienteForm.valid" mat-raised-button (click)="atualizar()" color="primary"> Atualizar</button>
+
+        <button mat-raised-button (click)="cancelar()">Cancelar</button>
+    </mat-card>
+</div>

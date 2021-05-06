@@ -34,19 +34,36 @@ namespace backend.data
                return (await _context.SaveChangesAsync()) > 0;
           }          
 
-          public async Task<Pessoa[]> GetAllPessoasAsync()
+          public async Task<Cliente[]> GetAllClientesAsync()
           {
-               IQueryable<Pessoa> query = _context.Pessoa;
+               IQueryable<Cliente> query = _context.Cliente;
                query = query.AsNoTracking().OrderBy(a => a.Id);
 
                return await query.ToArrayAsync();
           }         
 
-          public async Task<Pessoa> GetPessoaAsyncById(int pessosId)
+          public async Task<Cliente> GetClienteAsyncById(int pessosId)
           {
-               IQueryable<Pessoa> query = _context.Pessoa;
+               IQueryable<Cliente> query = _context.Cliente;
                query = query.AsNoTracking().OrderBy(a => a.Id)
                                            .Where(a => a.Id == pessosId);
+
+               return await query.FirstOrDefaultAsync();
+          }
+
+          public async Task<Anuncio[]> GetAllAnunciosAsync()
+          {
+               IQueryable<Anuncio> query = _context.Anuncio;
+               query = query.AsNoTracking().OrderBy(a => a.Id);
+
+               return await query.ToArrayAsync();
+          }
+
+          public async Task<Anuncio> GetAnuncioAsyncById(int anuncioId)
+          {
+               IQueryable<Anuncio> query = _context.Anuncio;
+               query = query.AsNoTracking().OrderBy(a => a.Id)
+                                           .Where(a => a.Id == anuncioId);
 
                return await query.FirstOrDefaultAsync();
           }
