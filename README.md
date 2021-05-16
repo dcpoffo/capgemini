@@ -116,9 +116,7 @@ dotnet ef database update
 ```
 Depois de pronta, para testar a API, foi utilizado o Postman. O objetivo é fazer requisições HTTP e avaliar se as repostas (retornos) foram dentro do esperado.
 
-## ---------------------------------
 ## Executando a aplicação no VSCode
-## ---------------------------------
 
 Para que a aplicação seja executada, deve-se abrir o terminal no VSCode e executar os seguintes comandos:
 (os próximos dois passos, devem ser executados apenas na primeira vez ou somente quando necessário)
