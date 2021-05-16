@@ -39,6 +39,8 @@ import { AnuncioCreateComponent  } from './components/anuncio/anuncio-create/anu
 import { AnuncioDeleteComponent  } from './components/anuncio/anuncio-delete/anuncio-delete.component';
 import { AnuncioUpdateComponent  } from './components/anuncio/anuncio-update/anuncio-update.component';
 
+//Relatorio
+import { RelatorioComponent } from './components/relatorio/relatorio.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { AnuncioUpdateComponent  } from './components/anuncio/anuncio-update/anu
     AnuncioCreateComponent,
     AnuncioDeleteComponent,
     AnuncioUpdateComponent,
+
+    RelatorioComponent,
 
   ],
   imports: [

@@ -14,6 +14,9 @@ import { AnuncioCreateComponent  } from './components/anuncio/anuncio-create/anu
 import { AnuncioDeleteComponent  } from './components/anuncio/anuncio-delete/anuncio-delete.component';
 import { AnuncioUpdateComponent  } from './components/anuncio/anuncio-update/anuncio-update.component';
 
+//Relatorio
+import { RelatorioComponent } from './components/relatorio/relatorio.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
@@ -28,6 +31,8 @@ const routes: Routes = [
   {path: 'anuncios/create', component: AnuncioCreateComponent},
   {path: 'anuncios/update/:id', component: AnuncioUpdateComponent},
   {path: 'anuncios/delete/:id', component: AnuncioDeleteComponent},
+
+  {path: 'relatorios', component: RelatorioComponent}
 ];
 
 @NgModule({

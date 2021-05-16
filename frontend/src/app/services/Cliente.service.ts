@@ -11,7 +11,7 @@ import { MensagemService } from './mensagem.service';
 })
 export class ClienteService {
 
-  baseURL = `${environment.mainUrlAPI}Cliente`;
+  baseURL = `${environment.mainUrlAPI}cliente`;
 
   constructor(
     private http: HttpClient,
@@ -33,16 +33,16 @@ export class ClienteService {
     );
   }
 
-  put(Cliente: Cliente): Observable<Cliente> {
-    const url = `${this.baseURL}/${Cliente.id}`;
-    return this.http.put<Cliente>(url, Cliente).pipe(
+  put(cliente: Cliente): Observable<Cliente> {
+    const url = `${this.baseURL}/${cliente.id}`;
+    return this.http.put<Cliente>(url, cliente).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  post(Cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(this.baseURL, Cliente).pipe(
+  post(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.baseURL, cliente).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );

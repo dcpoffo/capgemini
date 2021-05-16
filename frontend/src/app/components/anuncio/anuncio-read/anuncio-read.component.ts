@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Anuncio } from 'src/app/models/Anuncio';
+import { AnuncioService } from 'src/app/services/anuncio.service';
 
 @Component({
   selector: 'app-anuncio-read',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnuncioReadComponent implements OnInit {
 
-  constructor() { }
+  anuncios: Anuncio[];
+  displayedColumns = ['id', 'nome', 'cliente', 'dataInicio', 'dataTermino', 'qtdDias', 'investimentoDiario','acoes'];
+  //displayedColumns = ['id', 'nome', 'dataInicio', 'dataTermino', 'investimentoDiario','acoes'];
+
+  constructor(
+    private anuncioServico: AnuncioService
+  ) { }
 
   ngOnInit() {
+    this.anuncioServico.getAll().subscribe(anuncios => {
+      this.anuncios = anuncios;
+      console.log(anuncios);
+    });
   }
 
 }

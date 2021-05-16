@@ -1,3 +1,38 @@
-<p>
-  anuncio-delete works!
-</p>
+<div>
+    <mat-card>
+        <mat-card-title>Deseja realmente excluir este Anuncio?</mat-card-title>
+        <form flex-direction: column>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome do anuncio</mat-label>
+                <input matInput [value]="anuncio.nome" name="nome" disabled>
+            </mat-form-field>
+        </form>
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>Data Inicio</mat-label>
+                <input matInput [matDatepicker]="dtI" [value]="anuncio.dataInicio" name="dataInicio" disabled>
+                <mat-datepicker-toggle matSuffix [for]="dtI"></mat-datepicker-toggle>
+                <mat-datepicker #dtI></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Data Termino </mat-label>
+                <input matInput [matDatepicker]="dtF" [value]="anuncio.dataTermino" name="dataTermino" disabled>
+                <mat-datepicker-toggle matSuffix [for]="dtF"></mat-datepicker-toggle>
+                <mat-datepicker #dtF></mat-datepicker>
+            </mat-form-field>
+        </form>
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>Investimento Diário</mat-label>
+                <input matInput [value]="anuncio.investimentoDiario" name="investimentoDiario" disabled>
+            </mat-form-field>
+
+        </form>
+        <mat-card-actions>
+            <button mat-raised-button (click)="apagar()" color="warn"> Excluir </button>
+
+            <button mat-raised-button (click)="cancelar()"> Cancelar </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

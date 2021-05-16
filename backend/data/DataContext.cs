@@ -23,13 +23,13 @@ namespace backend.data
                    new Cliente(5, "Gengis"),
                 });
 
-                builder.Entity<Anuncio>()
-                   .HasData(new List<Anuncio>(){
-                   new Anuncio(1,"Anuncio1",1,DateTime.Now,DateTime.Now.AddDays(30),1.00),
-                   new Anuncio(2,"Anuncio 2",1,DateTime.Now.AddDays(1),DateTime.Now.AddDays(30),2.00),                   
-                   new Anuncio(3,"Anuncio 3",1,DateTime.Now.AddDays(2),DateTime.Now.AddDays(30),3.00),                   
-                   new Anuncio(4,"Anuncio 2",1,DateTime.Now.AddDays(3),DateTime.Now.AddDays(30),1.00),                   
-                });
+                // builder.Entity<Anuncio>()
+                //    .HasData(new List<Anuncio>(){
+                //    new Anuncio(1,1.00,1,DateTime.Now,DateTime.Now.AddDays(30),new TimeSpan(12,0,0),""),
+                //    new Anuncio(2,2.00,2,DateTime.Now.AddDays(1),DateTime.Now.AddDays(30),new TimeSpan(12,0,0),""),
+                //    new Anuncio(3,3.00,3,DateTime.Now.AddDays(2),DateTime.Now.AddDays(30),new TimeSpan(12,0,0),""),
+                //    new Anuncio(4,4.00,1,DateTime.Now.AddDays(3),DateTime.Now.AddDays(30),new TimeSpan(12,0,0),""),
+                // });
           }
     }
 }

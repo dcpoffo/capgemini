@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using backend.models;
 
@@ -10,10 +11,16 @@ namespace backend.data
         void Delete<T> (T entity) where T : class;
         Task<bool> SaveChangesAsync();
         
-        Task<Cliente[]> GetAllClientesAsync();
-        Task<Cliente> GetClienteAsyncById(int clienteId);   
+        Task<Cliente[]> GetAllClientesAsync(bool incluirAnuncio);
+        Task<Cliente> GetClienteAsyncById(int clienteId, bool incluirAnuncio);   
+        Task<Anuncio[]> GetAllAnunciosAsync(bool incluirCliente);
 
-        Task<Anuncio[]> GetAllAnunciosAsync();
-        Task<Anuncio> GetAnuncioAsyncById(int anuncioId);       
+        Task<Anuncio[]> GetAllAnunciosByClienteAsync(bool incluirCliente, string nomeCliente);
+        Task<Anuncio[]> GetAllAnunciosByDataAsync(bool incluirCliente, DateTime dataI, DateTime dataF);
+        Task<Anuncio[]> GetAllAnunciosPesquisaAsync(bool incluirCliente, string nomeCliente, DateTime dataI, DateTime dataF);
+        
+        Task<Anuncio> GetAnuncioAsyncById(int anuncioId);  
+
+
     }
 }

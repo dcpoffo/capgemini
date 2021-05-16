@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using backend.data;
 using backend.models;
+using backend.servicos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
@@ -23,7 +24,7 @@ namespace backend.Controllers
           {
                try
                {
-                    var result = await _repositorio.GetAllAnunciosAsync();
+                    var result = await _repositorio.GetAllAnunciosAsync(true);
                     return Ok(result);
                }
                catch (Exception ex)
@@ -49,6 +50,9 @@ namespace backend.Controllers
           [HttpPost]
           public async Task<IActionResult> Post(Anuncio anuncio)
           {
+               CalcularDiferencaDatasServico calcular = new CalcularDiferencaDatasServico();
+               anuncio.QuantidadeDias = calcular.CalculaDiferencaDatas(anuncio.DataTermino,anuncio.DataInicio);
+
                try
                {
                     _repositorio.Add(anuncio);
@@ -75,6 +79,9 @@ namespace backend.Controllers
                     {
                          return NotFound();
                     }
+
+                    CalcularDiferencaDatasServico calcular = new CalcularDiferencaDatasServico();
+                    anuncio.QuantidadeDias = calcular.CalculaDiferencaDatas(anuncio.DataTermino,anuncio.DataInicio);
 
                     _repositorio.Update(anuncio);
                     if (await _repositorio.SaveChangesAsync())
@@ -116,6 +123,48 @@ namespace backend.Controllers
                     return BadRequest($"Erro ao excluir a Assunto: {ex.Message}");
                }
                return BadRequest();
+          }
+
+          [HttpGet("nome={nomeCliente}/di={dataI}/df={dataF}")]
+          public async Task<IActionResult> GetAllAnunciosByPesquisa(string nomeCliente, DateTime dataI, DateTime dataF)
+          {
+               try
+               {
+                    var result = await _repositorio.GetAllAnunciosPesquisaAsync(true, nomeCliente, dataI, dataF);
+                    return Ok(result);
+               }
+               catch (Exception ex)
+               {
+                    return BadRequest($"Erro ao obter Anuncios: \n{ex.Message}");
+               }
+          }
+
+          [HttpGet("di={dataI}/df={dataF}")]
+          public async Task<IActionResult> GetAllAnuncioByData(DateTime dataI, DateTime dataF)
+          {
+               try
+               {
+                    var result = await _repositorio.GetAllAnunciosByDataAsync(true,dataI,dataF);
+                    return Ok(result);
+               }
+               catch (Exception ex)
+               {
+                    return BadRequest($"Erro ao obter Anuncios: \n{ex.Message}");
+               }
+          }
+
+          [HttpGet("nome={nomeCliente}")]
+          public async Task<IActionResult> GetAllAnuncioByNome(string nomeCliente)
+          {
+               try
+               {
+                    var result = await _repositorio.GetAllAnunciosByClienteAsync(true,nomeCliente);
+                    return Ok(result);
+               }
+               catch (Exception ex)
+               {
+                    return BadRequest($"Erro ao obter Anuncios: \n{ex.Message}");
+               }
           }
     }
 }

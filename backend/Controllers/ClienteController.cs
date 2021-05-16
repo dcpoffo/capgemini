@@ -22,7 +22,7 @@ namespace backend.Controllers
           {
                try
                {
-                    var result = await _repositorio.GetAllClientesAsync();
+                    var result = await _repositorio.GetAllClientesAsync(true);
                     return Ok(result);
                }
                catch (Exception ex)
@@ -36,7 +36,7 @@ namespace backend.Controllers
           {
                try
                {
-                    var result = await _repositorio.GetClienteAsyncById(clienteId);
+                    var result = await _repositorio.GetClienteAsyncById(clienteId, true);
                     return Ok(result);
                }
                catch (Exception ex)
@@ -68,7 +68,7 @@ namespace backend.Controllers
           {
                try
                {
-                    var cadastro = await _repositorio.GetClienteAsyncById(clienteId);
+                    var cadastro = await _repositorio.GetClienteAsyncById(clienteId, false);
 
                     if (cadastro == null)
                     {
@@ -93,7 +93,7 @@ namespace backend.Controllers
           {
                try
                {
-                    var cadastrado = await _repositorio.GetClienteAsyncById(clienteId);
+                    var cadastrado = await _repositorio.GetClienteAsyncById(clienteId, false);
                     if (cadastrado == null)
                     {
                          return NotFound();
