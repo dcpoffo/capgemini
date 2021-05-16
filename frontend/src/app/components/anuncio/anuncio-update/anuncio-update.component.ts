@@ -29,8 +29,7 @@ export class AnuncioUpdateComponent implements OnInit {
     clienteId: 0,
     dataInicio: null,
     dataTermino: null,
-    investimentoDiario: 1,
-    qtdDias: 0
+    investimentoDiario: 1
   };
 
   clientes: Cliente[];

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Anuncio } from 'src/app/models/Anuncio';
 import { AnuncioService } from 'src/app/services/anuncio.service';
 import { MensagemService } from 'src/app/services/mensagem.service';
+import * as moment from 'moment';
+import { HeaderService } from '../templante/header/header.service';
 
 @Component({
   selector: 'app-relatorio',
@@ -14,7 +16,6 @@ export class RelatorioComponent implements OnInit {
 
   anuncios: Anuncio[];
   displayedColumns = ['id', 'nome', 'cliente', 'dataInicio', 'dataTermino', 'qtdDias','investimentoDiario','totalInvestido','maxVisualizacoes','maxCliques','maxCompartilhamentos'];
-  //displayedColumns = ['id', 'nome', 'cliente', 'dataInicio', 'dataTermino', 'qtdDias','investimentoDiario', 'totalInvestido', 'qtdMaxVis', 'qtdCliques'];
 
    form = new FormGroup({
     cliente: new FormControl(),
@@ -24,19 +25,29 @@ export class RelatorioComponent implements OnInit {
 
   //campos para o ngModel, para ser passado para a função de busca
   public cliente: string;
-  public dataI: Date = new Date(2000,0,1,0,0,0,0);
-  public dataF: Date = new Date(2050,0,1,0,0,0,0);
+  public dataI: Date = new Date(2021,0,1,0,0,0,0);
+  public dataF: Date = new Date(2021,11,31,0,0,0,0);
   public resultado: number;
 
   constructor(
     private anuncioServico: AnuncioService,
     private mensagemServico: MensagemService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private headerService: HeaderService
+  ) {
+      headerService.headerData = {
+      title: 'Relatório',
+      icon: 'description',
+      routeUrl: '/relatorios'
+    };
+  }
+
+
+
 
   ngOnInit() {
-    this.dataI = new Date(2000,0,1,0,0,0,0);
-    this.dataF = new Date(2050,0,1,0,0,0,0);
+    this.dataI = new Date(2021,0,1,0,0,0,0);
+    this.dataF = new Date(2021,11,31,0,0,0,0);
     this.anuncioServico.getAll().subscribe(anuncios => {
       this.anuncios = anuncios;
       console.log(anuncios);
@@ -80,8 +91,8 @@ export class RelatorioComponent implements OnInit {
 
   limpar(): void {
     this.cliente = '';
-    this.dataI = new Date(2000,0,1,0,0,0,0);
-    this.dataF = new Date(2050,0,1,0,0,0,0);
+    this.dataI = new Date(2021,0,1,0,0,0,0);
+    this.dataF = new Date(2021,11,31,0,0,0,0);
     this.anuncioServico.getAll().subscribe(anuncios => {
       this.anuncios = anuncios;
       this.router.navigate(['/relatorios']);
@@ -114,5 +125,14 @@ export class RelatorioComponent implements OnInit {
     const quantidadeNovosCompartilhamentos = quantidadeCompartilhamentos * 40;
     const maximoCompartilhamentos = Math.round((quantidadeNovosCompartilhamentos + 160)*qtdeDias);
     return maximoCompartilhamentos;
+  }
+
+  calcularDiferencaDatas(dataF, dataI){
+    const dtF = moment(dataF);
+    const dtI = moment(dataI);
+    const duracao = moment.duration(dtF.diff(dtI));
+    const dias = duracao.asDays();
+    console.log(dias);
+    return dias;
   }
 }

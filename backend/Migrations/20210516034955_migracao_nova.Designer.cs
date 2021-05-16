@@ -9,8 +9,8 @@ using backend.data;
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210515164536_alteracao_anuncio3")]
-    partial class alteracao_anuncio3
+    [Migration("20210516034955_migracao_nova")]
+    partial class migracao_nova
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,9 +40,6 @@ namespace backend.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<double>("ValorTotalInvestido")
-                        .HasColumnType("double");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
@@ -54,41 +51,10 @@ namespace backend.Migrations
                         {
                             Id = 1,
                             ClienteId = 1,
-                            DataInicio = new DateTime(2021, 5, 15, 13, 45, 36, 339, DateTimeKind.Local).AddTicks(5169),
-                            DataTermino = new DateTime(2021, 6, 14, 13, 45, 36, 340, DateTimeKind.Local).AddTicks(4582),
-                            InvestimentoDiario = 1.0,
-                            Nome = "",
-                            ValorTotalInvestido = 0.0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ClienteId = 2,
-                            DataInicio = new DateTime(2021, 5, 16, 13, 45, 36, 340, DateTimeKind.Local).AddTicks(7925),
-                            DataTermino = new DateTime(2021, 6, 14, 13, 45, 36, 340, DateTimeKind.Local).AddTicks(7942),
-                            InvestimentoDiario = 2.0,
-                            Nome = "",
-                            ValorTotalInvestido = 0.0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ClienteId = 3,
-                            DataInicio = new DateTime(2021, 5, 17, 13, 45, 36, 340, DateTimeKind.Local).AddTicks(7947),
-                            DataTermino = new DateTime(2021, 6, 14, 13, 45, 36, 340, DateTimeKind.Local).AddTicks(7948),
-                            InvestimentoDiario = 3.0,
-                            Nome = "",
-                            ValorTotalInvestido = 0.0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ClienteId = 1,
-                            DataInicio = new DateTime(2021, 5, 18, 13, 45, 36, 340, DateTimeKind.Local).AddTicks(7950),
-                            DataTermino = new DateTime(2021, 6, 14, 13, 45, 36, 340, DateTimeKind.Local).AddTicks(7951),
-                            InvestimentoDiario = 4.0,
-                            Nome = "",
-                            ValorTotalInvestido = 0.0
+                            DataInicio = new DateTime(2021, 5, 16, 0, 49, 54, 730, DateTimeKind.Local).AddTicks(6816),
+                            DataTermino = new DateTime(2021, 5, 21, 0, 49, 54, 731, DateTimeKind.Local).AddTicks(9356),
+                            InvestimentoDiario = 5.0,
+                            Nome = "Anuncio 1"
                         });
                 });
 

@@ -49,9 +49,7 @@ namespace backend.Controllers
 
           [HttpPost]
           public async Task<IActionResult> Post(Anuncio anuncio)
-          {
-               CalcularDiferencaDatasServico calcular = new CalcularDiferencaDatasServico();
-               anuncio.QuantidadeDias = calcular.CalculaDiferencaDatas(anuncio.DataTermino,anuncio.DataInicio);
+          {              
 
                try
                {
@@ -78,10 +76,7 @@ namespace backend.Controllers
                     if (cadastrado == null)
                     {
                          return NotFound();
-                    }
-
-                    CalcularDiferencaDatasServico calcular = new CalcularDiferencaDatasServico();
-                    anuncio.QuantidadeDias = calcular.CalculaDiferencaDatas(anuncio.DataTermino,anuncio.DataInicio);
+                    }                    
 
                     _repositorio.Update(anuncio);
                     if (await _repositorio.SaveChangesAsync())

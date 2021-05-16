@@ -38,14 +38,22 @@ namespace backend.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("QuantidadeDias")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
                     b.ToTable("Anuncio");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClienteId = 1,
+                            DataInicio = new DateTime(2021, 5, 16, 0, 49, 54, 730, DateTimeKind.Local).AddTicks(6816),
+                            DataTermino = new DateTime(2021, 5, 21, 0, 49, 54, 731, DateTimeKind.Local).AddTicks(9356),
+                            InvestimentoDiario = 5.0,
+                            Nome = "Anuncio 1"
+                        });
                 });
 
             modelBuilder.Entity("backend.models.Cliente", b =>

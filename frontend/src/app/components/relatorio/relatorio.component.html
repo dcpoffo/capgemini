@@ -30,6 +30,7 @@
         </form>
         <button mat-raised-button (click)="pesquisar()" color="primary"> Pesquisar </button>
         <button mat-raised-button (click)="limpar()" color="accent"> Limpar </button>
+        <!-- <button mat-raised-button (click)="calcularDiferencaDatas(dataF, dataI)" color="accent"> Datas </button> -->
     </mat-card>
 </div>
 
@@ -65,8 +66,9 @@
                     </ng-container>
 
                     <ng-container matColumnDef="qtdDias">
-                        <th mat-header-cell *matHeaderCellDef>qtdDias</th>
-                        <td mat-cell *matCellDef="let row"> {{row.quantidadeDias}}</td>
+                        <th mat-header-cell *matHeaderCellDef>Qtd.Dias</th>
+                        <td mat-cell *matCellDef="let row"> {{calcularDiferencaDatas(row.dataTermino,row.dataInicio)}}</td>
+                        <!-- <td mat-cell *matCellDef="let row"> {{row.quantidadeDias}}</td> -->
                     </ng-container>
 
                     <ng-container matColumnDef="investimentoDiario">
@@ -76,22 +78,22 @@
 
                     <ng-container matColumnDef="totalInvestido">
                         <th mat-header-cell *matHeaderCellDef>Vl.Tot.Inv</th>
-                        <td mat-cell *matCellDef="let row"> R$ {{valorTotalInvestido(row.quantidadeDias, row.investimentoDiario)}}</td>
+                        <td mat-cell *matCellDef="let row"> R$ {{valorTotalInvestido(calcularDiferencaDatas(row.dataTermino,row.dataInicio), row.investimentoDiario)}}</td>
                     </ng-container>
 
                     <ng-container matColumnDef="maxVisualizacoes">
                         <th mat-header-cell *matHeaderCellDef>Max.Visual.</th>
-                        <td mat-cell *matCellDef="let row"> {{calcularQtdMaxVisualizacoes(row.investimentoDiario,row.quantidadeDias)}} </td>
+                        <td mat-cell *matCellDef="let row"> {{calcularQtdMaxVisualizacoes(row.investimentoDiario,calcularDiferencaDatas(row.dataTermino,row.dataInicio))}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="maxCliques">
                         <th mat-header-cell *matHeaderCellDef>Max.Cliques</th>
-                        <td mat-cell *matCellDef="let row"> {{maximoCliques(row.investimentoDiario, row.quantidadeDias)}} </td>
+                        <td mat-cell *matCellDef="let row"> {{maximoCliques(row.investimentoDiario, calcularDiferencaDatas(row.dataTermino,row.dataInicio))}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="maxCompartilhamentos">
                         <th mat-header-cell *matHeaderCellDef>Max.Compart.</th>
-                        <td mat-cell *matCellDef="let row"> {{calcularQtdMaxCompartilhamento(row.investimentoDiario,row.quantidadeDias)}} </td>
+                        <td mat-cell *matCellDef="let row"> {{calcularQtdMaxCompartilhamento(row.investimentoDiario,calcularDiferencaDatas(row.dataTermino,row.dataInicio))}} </td>
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

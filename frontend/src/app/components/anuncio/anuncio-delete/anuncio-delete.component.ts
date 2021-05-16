@@ -16,8 +16,7 @@ export class AnuncioDeleteComponent implements OnInit {
     clienteId: 0,
     dataInicio: null,
     dataTermino: null,
-    investimentoDiario: 0,
-    qtdDias: 0
+    investimentoDiario: 0
   };
 
   constructor(
