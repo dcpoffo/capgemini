@@ -40,13 +40,13 @@ namespace backend.servicos
 ## Bases Utilizadas
 Para cadastrar anuncios, serão usandas as bases Cliente e Anuncio. Estas bases armazenam e disponibilizam informações para o cadastro de anuncios. Cada base é usada como Classe para o desenvolvimento da aplicação.
 
-####Cliente
+### Cliente
 ```
 Id int NOT NULL AUTO_INCREMENT
 Nome longtext
 ```
 
-####Anuncio
+### Anuncio
 ```
 ```
 
@@ -58,7 +58,7 @@ Aplicação principal, desenvolvida em Angular utilizando a IDE VSCode. Para o d
 ng new frontend
 ```
 
-#### Estrutura do frontend
+### Estrutura do frontend
 * components - para cada entidade, foi criado um componente para as ações Criar (create), Ler (read), Atualizar (update) e Apagar (delete)
 ```
 ng generate component classe-acao
@@ -101,7 +101,7 @@ API desenvolvida em .Net Core para comunicação entre o Banco de Dados MySQL e 
 dotnet new webapi
 ```
 
-#### Estrutura do backend
+### Estrutura do backend
  - data
     - DataContext: através dele podemos acessar os métodos create, read, update, delete e outros metodos de interação com o banco de dados.
     - IRepository: interface que contém a assinatura de metodos padrões (Add, Update, Delete, SaveChanges) e referentes a cada modelo.
@@ -147,7 +147,7 @@ Se não apresentar nenhum erro, pode-se acessar a aplicação pelo navegador, at
 ## Retornos
 Retorno das requisições feitas através do Postman
 
-#### Obter Clientes
+### Obter Clientes
 - GetAll: obtem todos os Clientes cadastrados
 ```` json
 url = http://localhost:5000/cliente
@@ -178,7 +178,7 @@ method = GET
 }
 ````
 
-#### Obter Anuncios
+### Obter Anuncios
 - GetAll: obtem todos os Anuncios cadastrados
 ```` json
 url = http://localhost:5000/anuncio
@@ -247,5 +247,3 @@ method = GET
         }
     },
 ````
-
-
