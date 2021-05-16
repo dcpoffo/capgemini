@@ -48,6 +48,12 @@ Nome longtext
 
 ### Anuncio
 ```
+Id int NOT NULL AUTO_INCREMENT
+Nome longtext
+ClienteId int NOT NULL
+DataInicio datetime NOT NULL
+DataTermino datetime NOT NULL
+InvestimentoDiario double NOT NULL
 ```
 
 ## Estrutura do Projeto
@@ -169,7 +175,6 @@ method = GET
             "clienteId":
             "dataInicio":
             "dataTermino":
-            "quantidadeDias":
             "investimentoDiario":
         }
     ]
@@ -187,7 +192,6 @@ method = GET
         "clienteId":
         "dataInicio":
         "dataTermino":
-        "quantidadeDias":
         "investimentoDiario":
         "cliente": {
             "id":
@@ -206,7 +210,6 @@ method = GET
     "clienteId":
     "dataInicio":
     "dataTermino":
-    "quantidadeDias":
     "investimentoDiario":
     "cliente": null
 }
@@ -219,7 +222,6 @@ method = GET
         "clienteId":
         "dataInicio":
         "dataTermino":
-        "quantidadeDias":
         "investimentoDiario":
         "cliente": {
             "id": 
@@ -236,7 +238,6 @@ method = GET
         "clienteId":
         "dataInicio":
         "dataTermino":
-        "quantidadeDias":
         "investimentoDiario":
         "cliente": {
             "id": 
